@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info">my info</div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            // typeof單元運算子
+
+            const info = $('#info')
+            const info2 = document.querySelector('#info')
+
+            // 在網頁上的console可以看到拿到的字串是什麼值
+            console.log(typeof 6);
+            console.log(typeof true);
+            console.log(typeof null);
+            console.log(typeof undefined);
+            // 查看function的參照
+            console.log(typeof alert);
+
+            // 直接印在網頁上的寫法
+            info.append(typeof 6 + '<br>');
+            info.append(typeof true + '<br>');
+            info.append(typeof null + '<br>');
+            info.append(typeof undefined + '<br>');
+            info.append(typeof alert + '<br>');
+            info.append(info2.constructor.name + '<br>');
+            // HTMLDivElement是元素物件<div> 
+
+
+
+            
+
+
+
+
+        </script>
+</body>
+</html>

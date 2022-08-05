@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 關係運算子 -->
+    <div id="info">my info</div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+
+            let a = 5,
+                b = 8,
+                c = '5';
+                // 引號表示那是字串
+
+            console.log(a > b);
+            console.log(a === b);
+            console.log(a < b);
+
+            // 兩個等號會做自動型別轉換 casting
+            // '5' 是字串，不等於數字的5，所以嚴謹(===)來說是false但寬鬆(==)來說是true
+            console.log('a==c', a == c);
+
+            // 三個等號比較嚴謹，一定要都相同
+            console.log('a===c', a === c);
+        </script>
+
+</body>
+</html>

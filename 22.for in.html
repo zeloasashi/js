@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for in 迴圈</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const p1 = {
+                name:'Nill',
+                age: 22,
+                gender: 'male'
+            }
+
+            for(let s in p1){
+                info.append(`<p>${s}</p>`)
+                // 用中括號取屬性名稱裡的值
+                info.append(`<p>${s}: ${p1[s]}</p>`)
+            }
+
+            // for in迴圈會根據key value自動決定要跑幾圈，只能用在object
+
+            // p1有沒有'name'這個key，有就是true
+            console.log('name' in p1);
+            // p1有沒有'mobile'這個key，沒有就是false
+            console.log('mobile' in p1);
+        </script>
+</body>
+</html>

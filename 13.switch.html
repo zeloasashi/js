@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="score" type="number" placeholder="輸入分數" oninput="convert()">
+    <!-- 在input加入oninput="convert()"就不用按按鈕才能轉換，會直接跑出轉換的值 -->
+    <!-- <button onclick="convert()">轉換</button> -->
+    <div id="info"></div>
+    
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        // 講義P.24
+        function convert() {
+            const score = + $('#score').val();
+            const s = parseInt(score/10);
+            let g = '';
+
+            switch(s){
+                case 10:
+                case 9:
+                    g = 'A';
+                    break;
+                case 8:
+                    g = 'B';
+                    break;
+                case 7:
+                    g = 'C';
+                    break;
+                case 6:
+                    g = 'D';
+                    break;
+                default:
+                    g = 'F';
+            }
+            $('#info').html(g);
+        }
+
+
+    </script>
+
+</body>
+</html>

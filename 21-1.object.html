@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物件</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+
+            // Object ：一個名稱對應一個值的資料集合（key-value pair）。
+            // Object 的特性是一個屬性名稱對應一個屬性值，重點不是順序，無需理會名稱的順序。
+            // 如果要讓名稱排列有順序要用陣列
+            const obj1 = {}
+            // 很舊的寫法，目前幾乎不這樣使用
+            const obj2 = new Object()
+            const obj3 = {name: 'David', age: 27}
+            // key可省略引號，(屬性名稱，如name)重複的話不會出現錯誤訊息，但後面會蓋掉前面
+            const obj4 = {name: 'David', age: 27, name: 'Peter'}
+            const obj5 = {
+                name: 'Flora',
+                age: 23,
+                // key不要使用字串以外的類型(如下列的數字50)，因為會被自動轉換
+                50: 123,
+            }
+
+            console.log(obj3);
+            console.log(obj4);
+            console.log(obj5);
+
+            // 重新定義名字後，雖然obj5預視名稱是Flora，但展開物件會發現名稱變成Alice了，因為console在展開物件資料時才會去查看內容
+            obj5.name = 'Alice'
+            console.log(obj5);
+
+            // 用中括號[]求出來的會是字串，如果是數字也會自動被轉成字串??
+
+        </script>
+</body>
+</html>

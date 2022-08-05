@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(shinder);
+        // 宣告變數
+        var shinder = 100
+        let hello = 99
+        
+        // 用var宣告的特性：全域時(???)，1.會變成window物件的屬性，2.有提升的效果，所以先打console.log也不會出錯
+        console.log(shinder);
+        // 有出現表示這是window的屬性，用var宣告會自動變成window的屬性
+        console.log(window.shinder);
+
+        console.log(hello);
+        // 用let宣告不會自動變成window的屬性所以在網頁上不會印出來
+        console.log(window.hello);
+
+        // 用let宣告時，要在宣告後用console.log才能在網頁上印出東西
+
+    </script>
+</body>
+</html>

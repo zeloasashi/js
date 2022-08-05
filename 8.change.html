@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- pdf第14頁，2.6基本型別轉換 -->
+    <input type="text" id="a"> + <input type="text" id="b">
+    <button onclick="cal()">=</button>
+    <div id="info">my info</div>
+
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        function cal() {
+            const a = $('#a').val();
+            const b = $('#b').val();
+
+            $('#info').html(a + b);
+
+            // 轉換為整數值
+            $('#info').html( parseInt(a) + parseInt(b));
+
+        }
+    </script>
+
+</body>
+</html>

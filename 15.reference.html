@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reference參照??</title>
+</head>
+<body>
+    <img src="./參照.jpg" alt="">
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            // 設定參照
+            const info = $('#info')
+            const another = info
+
+            another.html(`<h2>Hello Js</h2>`)
+        </script>
+
+
+</body>
+</html>

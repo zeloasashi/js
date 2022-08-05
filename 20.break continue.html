@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單層迴圈的物件排列</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid lightblue;
+            background-color: #aaf;
+        }
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: #faf;
+            background-color: #afa;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #faa;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect')
+
+            // 外層的數量*內層的數量。一排10個i，排成K列
+            for(let i=0; i<10; i++){
+                if(i===7){
+                    // 離開迴圈
+                    break;
+                }
+                    const b = $(`<div class="ball">${i+1}</div>`)
+
+                    b.css({left:i*60, top:50})
+                    rect.append(b)
+                    
+                }
+
+                // 
+                for(let i=0; i<10; i++){
+                if(i===7){
+                    // 略過該輪迴圈
+                    continue;
+                }
+                    // continue略過這裡，直接進行下一輪，所以略過8，直接變9、10
+                    const b = $(`<div class="ball">${i+1}</div>`)
+
+                    b.css({left:i*60, top:150})
+                    rect.append(b)
+                    
+                }
+                
+            
+            
+        </script>
+</body>
+</html>

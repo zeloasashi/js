@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巢狀迴圈</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid lightblue;
+            background-color: #aaf;
+        }
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: #faf;
+            background-color: #afa;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #faa;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect')
+
+
+            let n = 1
+            // 外層的數量*內層的數量。一排10個i，排成K列
+            for(let i=0; i<10; i++){
+                // 可以簡寫，但老師不常用
+                // for(let i = 0, n = 1; i < 10; i++){
+                //     for(let k = 0; k < 5; k++, n ++){ 
+                for(let k=0; k<5; k++){
+                    const b = $(`<div class="ball">${n}</div>`)
+
+                    b.css({left:i*60, top:k*70})
+                    rect.append(b)
+                    // 用簡寫時n++不關掉會變成單數
+                    n++
+                }
+                
+            }
+            
+        </script>
+</body>
+</html>

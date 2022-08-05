@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <div id="info"></div>
+
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        const info = $('#info')
+        let n = 255
+        let s = 'AB'
+        // b(11)=16的0次方*11，a(10)=16的1次方*10，所以是16*10(A)+11(B)=171
+
+        // (16)表示是16進位法
+        // a=10
+        // b=11
+        // c=12
+        // d=13
+        // e=14
+        // f=15
+        info.append( n.toString(16) + '<br>');
+        info.append( parseInt(s, 16) + '<br>');
+
+        // #FF0000是已十六進位表示法的紅色，也就是#F00
+    </script>
+
+</body>
+</html>

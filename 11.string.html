@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <div id="info"></div>
+    
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        const info = $('#info')
+        const str = 'a陳bcd陳e'
+                    //0123456 
+
+        // charAt：第幾個字元
+        info.append( str.charAt(0) + '<br>')
+        // charCodeAt：第幾個字元的字碼，第0個位子的值是a，a的十進位字碼是97
+        info.append( str.charCodeAt(0) + '<br>')
+        info.append( str.charAt(1) + '<br>')
+        // 陳的十進位字碼是38515，陴的十進位字碼是38516
+        info.append( str.charCodeAt(1) + '<br>')
+        info.append( String.fromCharCode(38516) + '<br>')
+
+        // 得到索引值的方法
+        info.append( str.indexOf('a') + '<br>')
+        info.append( str.indexOf('陳') + '<br>')
+        // 想讓indexOf找到第2個陳的方法
+        info.append( str.indexOf('陳', 2) + '<br>')
+        // 有兩個陳時，從後面開始找
+        info.append( str.lastIndexOf('陳') + '<br>')
+        
+        // 找不到時會變-1
+        info.append( str.indexOf('林') + '<br>')
+
+        // slice 擷取字串
+        // 擷取第3和第5個位子的字串
+        console.log(str.slice(3,5));
+        // 擷取第3個後面的字
+        console.log(str.slice(3));
+        console.log(str);
+        console.log(str.toUpperCase());
+
+        // 刪除
+        info.append(str.split('陳').join('')+ '<br>')
+        // 替換
+        info.append(str.split('陳').join('李')+ '<br>')
+        // 每個字元間插入其他字
+        info.append(str.split('').join('-')+ '<br>')
+
+
+    </script>
+
+</body>
+</html>

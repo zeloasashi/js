@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 關係運算子 -->
+    <div id="info">my info</div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            // !表示not，是單元運算子，優先權最高，可以用來做布林值的轉換
+            console.log(!! 0);
+            console.log(!! undefined);
+            console.log(!! null);
+
+            // Not a Number
+            console.log(!! NaN);
+
+            // && 表示（and）且，兩個條件要同時成立，快捷運算子，以布林值概念判斷，結果不一定為布林值
+            // 快捷運算子(又叫偷懶運算子)
+            // 兩個值都是true，取後面的值
+            console.log(3 && 2);
+            // 第一個值已經是false(0)，所以不會再判斷後面的值
+            console.log(0 && 2);
+
+            let a, b;
+            b = 0 && (a = 7);
+            // 印出來a是undefined，b是0
+            console.log(a,b);
+            a = undefined
+            b = undefined
+
+            // 印出來a和b都是7
+            b = 1 && (a = 7);
+            console.log(a,b);
+            
+            // ||表示or 或，快捷運算子，以布林值概念判斷，結果不一定為布林值。
+            // 因為7已經是true，所以會列印出7
+            console.log(7 || 3);
+            // 因為0是false，所以取後面的值，列印出3
+            console.log(0 || 3);
+            
+            // 運算子優先權：
+            // 單元> 算術> 關係> 邏輯> 設定
+
+            // 空字串是false，其他有內容的字串都是true
+
+            // 三次元運算值
+            // 5大於8嗎?有傳a，沒有傳b
+            console.log(5 > 8 ? 'a' : 'b');
+        </script>
+
+</body>
+</html>
