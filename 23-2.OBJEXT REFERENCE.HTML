@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>介紹單層複製</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const p1 = {
+                name:{
+                    first: 'John',
+                    last:'Wick'
+                },
+                age: 22,
+                gender: 'male'
+            }
+
+            // 設定值的類型:number, boolin, string
+            const p3 = {...p1} //ES6展開複製中的單層複製，直接複製一個p1
+            p3.name.first = 'Alice'
+            p3.age = 50
+            // 因為是單層複製，只能修改第一層的name，所以就算修改年齡也沒有改變
+            console.log(p1);
+        </script>
+</body>
+</html>

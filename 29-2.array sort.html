@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array的sort</title>
+</head>
+<body>
+    <div id="info"></div>
+    <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array"></a>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const ar = [3, 2, 7, 5, 1]
+            
+            info.append(ar.toString() + '<br>')
+            
+            ar.sort(function(a, b){
+                console.log({a, b}); //拿其中兩個做比對
+                // 回傳值：負值做對調，正值或零不對調
+                return a-b //a減b，由小到大
+            })
+            info.append(ar.toString() + '<br>')
+
+            ar.sort(function(a, b){
+                console.log({a, b}); //拿其中兩個做比對
+                // 回傳值：負值做對調，正值或零不對調
+                return b-a //b減a，由大到小
+            })
+            info.append(ar.toString() + '<br>')
+        </script>
+</body>
+</html>

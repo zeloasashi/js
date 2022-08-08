@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>參數傳遞的機制 PDF第48頁</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+
+            function pop(ar){  //ar形式參數
+                return ar.pop()  //pop會影響到原本的陣列
+            }
+
+            const ar1 = [1,3,5,7]
+            pop(ar1) //實際參數
+            // 傳址呼叫，傳遞參照呼叫
+            // 傳直呼叫：Number, Boolean, String
+            info.append( JSON.stringify(ar1) + '<br>')
+        </script>
+</body>
+</html>

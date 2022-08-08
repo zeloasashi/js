@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array的用法，pdf第37頁</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const ar = []
+            for(let i=1; i<=42; i++){
+                ar.push(i)  //從後端加入一元素值
+                // ar.unshift(i) //從前端加入一元素值
+            }
+            info.append(ar.toString() + '<br>')
+            const ar2 = [...ar]
+            ar2.reverse() //只是讓陣列順序反轉，沒有加元素值
+            info.append(ar2.toString() + '<br>')
+
+            // concat將兩個陣列串起來變成新的陣列
+            console.log(ar.concat(ar2));
+            console.log(ar.concat());
+
+            // 有沒有包含42這個值
+            console.log(ar.includes(42));
+        </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>區域變數</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+
+            let a = 10 //全域變數
+
+            function func() {
+                // 區域變數如果和上層變數同名時，會有遮蔽效果(老師打的)
+                let a = 100 //區域變數，有區域變數時就不會往外層找
+                info.append( a + '<br>')
+            }
+            func()
+
+            function func2(a){
+                // 形式參數就是區域變數
+                info.append( a + '<br>')
+            }
+            func2(99)
+        </script>
+</body>
+</html>

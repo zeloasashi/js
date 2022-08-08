@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陣列的長度</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const ar = [2, 6, 7, 'hello', true]
+
+            info.append( ar.length + '<br>')
+            // 上面是顯示陣列的長度，下面兩個是將陣列轉換成字串的寫法
+            info.append( ar + '<br>')
+            info.append( ar.toString() + '<br>')
+            info.append( ar )
+
+
+            console.log(ar);
+        </script>
+</body>
+</html>

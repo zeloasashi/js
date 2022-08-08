@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深層複製JSON</title>
+</head>
+<body>
+    <div id="info"></div>
+    <a href="https://www.json.org/json-en.html">深層複製JSON</a>
+    <a href="https://awdr74100.github.io/2019-10-24-javascript-deepcopy/">淺拷貝與深拷貝</a>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const ar = [12, 99, 'aaa', ['Bill', 25, 'male']]
+            const ar2 = [...ar] //淺層複製
+            const ar3 = JSON.parse(JSON.stringify(ar)) //深層複製的東西都不會被後面的改變影響。用到的機率不高，通常用展開複製就好
+
+            ar[0] = 100
+            console.log(ar);
+            ar[3][0] = 'Alex'
+            console.log(ar2);
+            info.append( JSON.stringify(ar2) + '<br>')
+
+            console.log(ar3);
+            info.append( JSON.stringify(ar3) + '<br>')
+            // JSON.stringify字串轉換一律會用雙引號""表示
+            // JSON.parse字串轉換為原生array或obj
+        </script>
+</body>
+</html>

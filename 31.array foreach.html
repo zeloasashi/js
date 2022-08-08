@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物件陣列排序</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"></a>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        const info = $('#info')
+        let people = [
+            { name: 'David', age: 35 },
+            { name: 'Carl', age: 35 },
+            { name: 'Bill', age: 35 },
+        ]
+
+        // callback function回呼函式
+        people.forEach(function (v, i) {
+            // v是value, i是index, e是element
+            console.log({ v, i });
+        })
+
+            // 語法
+            // arr.forEach(function callback(currentValue[, index[, array]]) {
+            //your iterator
+            // }[, thisArg]);
+
+    </script>
+</body>
+
+</html>

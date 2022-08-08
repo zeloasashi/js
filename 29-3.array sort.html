@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物件陣列排序</title>
+</head>
+<body>
+    <div id="info"></div>
+    <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"></a>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            let people = [
+                {name: 'David', age:35},
+                {name: 'Carl', age:35},
+                {name: 'Bill', age:35},
+            ]
+
+            const p1 = [...people]
+            p1.sort(function(a, b){
+                return a.age - b.age //年齡由小到大
+            })
+            console.log(p1);
+
+            const p2 = [...people]
+            p2.sort(function(a, b){
+                return b.age - a.age //年齡由大到小
+            })
+            console.log(p2);
+
+            const p3 = [...people]
+            p3.sort(function(a, b){
+                return b.name > a.name ? -1 : 1 //姓名字母由小到大
+                // ?是三元運算子，在7.operator。
+                // :是比較a與b的值，看要丟前丟後
+            })
+            console.log(p3);
+
+
+        </script>
+</body>
+</html>

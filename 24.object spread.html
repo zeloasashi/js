@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展開設定</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const p1 = {
+                name:{
+                    first: 'John',
+                    last:'Wick'
+                },
+                age: 22,
+                gender: 'male'
+            }
+
+            // 展開設定
+            const { age, gender } = p1
+            const{ name: {first, last} } = p1 //展開設定，撥開第二層
+            console.log( {age, gender} );
+            // 上面是ES6的寫法，下面是舊的寫法
+            console.log( {age: age, gender: gender} );
+            console.log({name}); //為什麼會是空字串~~
+            console.log({first, last});
+        </script>
+</body>
+</html>

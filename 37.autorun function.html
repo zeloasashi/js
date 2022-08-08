@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立即執行匿名函式，pdf第51頁</title>
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        const info = $('#info')
+
+        let a = 10; //全域變數，js盡量少用
+            // IIFE 全名為Immediately Invoked Functions Expressions，指的是可以立即執行的Functions Expressions函式表達式。
+
+            (function () {
+                const a = [1,2,3]
+                console.log(a);
+            })();
+
+            (function () {
+                const a = {name:'Bill'}
+                console.log(a);
+            }());
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info"></div>
+    
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const p1 = { 
+                name: 'Bill',
+                age: 21,
+                gender: 'male'
+            };
+            const p2 = { ...p1, name: 'Max'} //順序會有影響，要變更的放後面
+            const p3 = { name: 'David', ...p1} //展開後BILL會蓋掉修改的內容，因為複製的p1在後面，沒有被修改到
+
+            info.append( JSON.stringify(p2) + '<br>')
+            info.append( JSON.stringify(p3) + '<br>')
+
+            const ar = [2, 4, 6]
+            const ar2 = ['abc', ...ar, 'def']
+            info.append( JSON.stringify(ar2) + '<br>')
+
+        </script>
+
+</body>
+</html>

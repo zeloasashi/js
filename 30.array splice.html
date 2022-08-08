@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array.splice()</title>
+</head>
+<body>
+    <div id="info"></div>
+    <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/sort"></a>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            // slice是複製的意思
+            // splice(索引, 刪除量, [加入]) 插入、刪除、替換元素。
+
+            const info = $('#info')
+            const str = 'abcdefghij'
+            const ar = str.split('')
+            let br = [...ar]
+
+            info.append( br.splice(2, 3) + '<br>') //在索引值2的位子移除c,d,e 這3個元素
+            info.append( br + '<br>')
+            info.append( '-----------<br>')
+
+            br = [...ar]
+            info.append( br.splice(2, 0, 12, 34) + '<br>') //在索引值2的位子移除0個元素(所以不會顯示東西)，並插入12,34這2個元素
+            info.append( br + '<br>')
+            info.append( '-----------<br>')
+
+            br = [...ar]
+            info.append( br.splice(2, 2, 12, 34) + '<br>') //在索引值2的位子移除c,d這2個元素，並取代2個元素
+            info.append( br + '<br>')
+            info.append( '-----------<br>')
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array的sort</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const ar = []
+            for(let i=1; i<=42; i++){
+                ar.unshift(i) 
+                
+            }
+            info.append(ar.toString() + '<br>')
+            
+            ar.sort() //預設情況會以「字串」做排序，所以19>2
+            info.append(ar.toString() + '<br>')
+            // 字串排序時會分別比對，不會全部對一個，如'aaaaa' 還是小於'b'，因為'a'<'b'(編碼97<98)
+            // 中文的排序是以部首
+            
+        </script>
+</body>
+</html>

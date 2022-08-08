@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陣列的展開複製</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const ar1 = [2, 6, 7, 'hello', true]
+
+            const ar2 = ar1
+            const ar3 = [...ar1] //展開複製
+            ar1[2] = 99
+            info.append(ar1 + '<br>')
+            info.append(ar2 + '<br>')
+            info.append(ar3 + '<br>')
+
+            const [a, b, c] = ar2 //展開設定
+            console.log({a, b, c});
+        </script>
+</body>
+</html>

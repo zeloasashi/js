@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for of取值</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const ar = [2, 6, 7, 'hello', true]
+
+            // for of 直接取值(value)的ES6寫法
+            for(let v of ar){
+                info.append(`${v}<br>`)
+            }
+        </script>
+</body>
+</html>

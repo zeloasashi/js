@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函式定義</title>
+</head>
+<body>
+    <div id="info"></div>
+    
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+
+            info.append( plus(5, 20) + '<br>')
+            // 傳統的函式定義，有提升效果，所以上面那串也會出現，但還是寫在後面比較好
+            info.append( plus(5) + '<br>') //沒有規定b的值，所以b會用預設值10
+            info.append( plus() + '<br>') //ab都沒有規定會用下面的預設值
+            function plus(a =5, b =10){
+                // 預設b=10
+                return a + b;
+            }
+
+            info.append( plus(5, 10) + '<br>')
+
+            // 參數可以用其餘運算子 rest operator
+            function a(...b){
+                info.append( JSON.stringify(b) + '<br>')
+                
+            }
+            a(2, 4, 6)
+        </script>
+
+</body>
+</html>

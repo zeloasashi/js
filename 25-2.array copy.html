@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陣列的特性</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const ar = [2, 6, 7, 'hello', true]
+            ar[5] = 'Shin'
+            ar[9] = 'jump'
+            ar[-2] = 'test'
+            ar['hi'] = 'string'
+             //索引值最好是連續的，且不要用負數和字串，容易搞混
+
+            console.log(ar[ ar.length-1 ]); //取最後一個元素值
+
+            info.append(ar.length + `<br>`) //取得最大索引值+1
+            // 不建議用for迴圈，跳號時中間沒下的數會出現且變成undefined
+            for(let i=0; i<ar.length; i++){
+                info.append(`${i}: ${ar[i]}<br>`)
+            }
+            info.append(`-------------------<br>`)
+
+            for(let s in ar){
+                info.append(`${s}: ${ar[s]}<br>`)
+                
+            }
+            info.append(`-------------------<br>`)
+            info.append(ar[2] + `<br>`)
+            info.append(ar['2'] + `<br>`)
+
+        </script>
+</body>
+</html>

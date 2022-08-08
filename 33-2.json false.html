@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不是所有情況都可以做深層複製JSON</title>
+</head>
+<body>
+    <div id="info"></div>
+    <!-- <a href="https://www.json.org/json-en.html">深層複製JSON</a> -->
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            const p1 = { name:'Bill', age:21}
+            const p2 = { name:'David', age:26}
+            const p3 = { name:'Will', age:32}
+
+            p1.next = p2
+            p2.next = p3
+            // p3.next ←加這個會變一個循環，有錯但不會跑出錯誤訊息
+            // 發生錯誤，circular structure循環結構，會出現錯誤訊息的寫法：
+            // const str = JSON.stringify(p1)
+            // 表示不是所有情況都可以做深層複製
+
+            console.log(p1);
+
+
+        </script>
+</body>
+</html>
