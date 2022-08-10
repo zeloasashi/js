@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval移動</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #aff;
+        }
+        .ball{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #faf;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="start()">START</button>
+    <button onclick="stop()">STOP</button>
+    <div class="rect">
+        <div class="ball"></div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        let iid; //interval的id
+        const ball = $('.ball');
+
+        function start(){ //funciton名字可以取myStart/myBegin/myStop之類的，因為如果沒加my直接取常見的名字，可能會和一般jq函式名字一樣，導致window壞掉
+            iid = setInterval(() => {
+                ball.css('left', '+=3'); //+=是啥
+            }, 30);
+        }
+        
+        function stop(){
+            clearInterval(iid);
+        }
+        
+    </script>
+</body>
+</html>

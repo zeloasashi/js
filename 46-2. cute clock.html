@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時鐘的秒針</title>
+
+    <style>
+        .clock{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border: 1px solid gray;
+            background-color: #aaf;
+            border-radius: 50%;
+        }
+        .hand{
+            position: absolute;
+            left: 300px;
+            top: 300px;
+            /* 如果在這裡下transiton，當時間歸0時，指針會逆時針從0開始 */
+        }
+        .hr-hand{
+            position: absolute;
+            width: 20px;
+            height: 200px;
+            left: -10px;
+            top: -190px;
+            background-color: #faa;
+            border-radius: 10px;
+        }
+        .min-hand{
+            position: absolute;
+            width: 10px;
+            height: 250px;
+            left: -5px;
+            top: -245px;
+            background-color: #aff;
+            border-radius: 5px;
+        }
+        .sec-hand{
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: url(./images/mario.gif);
+            background-size: cover;
+            left: -40px;  
+            top: -300px; 
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div id="hr-hand" class="hand">
+            <div class="hr-hand"></div>
+        </div>
+        <div id="min-hand" class="hand">
+            <div class="min-hand"></div>
+        </div>
+        <div id="sec-hand" class="hand">
+            <div class="sec-hand"></div>
+        </div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const secHand = $('#sec-hand');
+            const minHand = $('#min-hand');
+            const hrHand = $('#hr-hand');
+
+            function runClock(){
+                const now = new Date;
+                let sec = now.getSeconds();
+                let msec = now.getMilliseconds();
+                let min = now.getMinutes();
+                let hr = now.getHours();
+                // secHand.css('transform', 'rotate(30deg)');
+                secHand.css('transform', `rotate(${sec*6 + 6/1000*msec}deg)`); //360度/60所以每秒跑6度
+                minHand.css('transform', `rotate(${min*6}deg)`); //360度/60所以每秒跑6度
+                // hrHand.css('transform', `rotate(${(hr*30)}deg)`); 
+                //360度/12(小時動12次)所以每秒跑30度，但這樣時針只會在整點時突然移動到整點的位子，所以要讓時針也隨著分鐘移動，
+                hrHand.css('transform', `rotate(${(hr*30 + min*.5)}deg)`);
+
+
+                setTimeout(runClock, 30)
+            }
+            runClock()
+
+
+        </script>
+
+</body>
+</html>

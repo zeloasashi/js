@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date-field</title>
+</head>
+<body>
+    <!-- input功能預設的月曆功能，每個瀏覽器預設的樣式不一樣，例如chrome看到的第二個是空白的不能用，但是火狐還是可以用 -->
+    <input id="mydate1" type="date" onchange="showInfo()"> <br>
+    <input id="mydate2" type="datetime" > <br>
+    <input id="mydate3" type="datetime-local" onchange="showInfo()">
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            function showInfo(){
+                let str = $('#mydate1').val() + '<br>' + 
+                $('#mydate3').val() + '<br>';
+
+                info.html( str );
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval可以拿來做時鐘</title>
+</head>
+<body>
+    <img src="./setInterval 012345.jpg" alt="">
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            
+            setInterval(()=>{
+                const now = new Date();
+                info.html(now.toString().split(' ')[4]) //split的引號內記得加空格，不然就是把每個字都分開，不是照著空格分開
+            },1000) // 切出第四個位子(時間)來做電子時鐘
+        </script>
+</body>
+</html>

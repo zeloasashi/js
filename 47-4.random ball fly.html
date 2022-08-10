@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隨機球球上下飄</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid lightblue;
+            background-color: #ccc;
+        }
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect')
+            const balls = [];
+
+
+            function randomColor(){
+                let c = Math.floor(16777216*Math.random()).toString(16);
+                while(c.length<6){
+                    c = '0' + c;
+                }
+                return '#' + c;
+            }
+            
+            for(let i=0; i<100; i++){ //用div做動畫很吃效能，所以數量不要太多
+                const b = $(`<div class="ball"></div>`);
+                const left = Math.floor(800*Math.random());
+                const top = Math.floor(600*Math.random());
+                const size = 20 + Math.floor(21*Math.random()); 
+
+
+            b.css({
+                left,
+                top,
+                width: size, //因為是圓形所以寬高用size
+                height: size,
+                'background-color': randomColor(),
+                // HSL：角度(360度),飽和度,亮度
+            });
+            balls.push(b);
+            rect.append(b);
+            }
+
+            function doRun(){
+                balls.forEach((b)=>{
+                    const dx = Math.floor(5*Math.random())-2; //-2-2之間，包括0還是有5秒? 
+                    const dy = Math.floor(5*Math.random())-2;
+                    // const dy = 1 + Math.floor(3*Math.random()); //dy表示垂直(y)移動，1表示1px，1-3之間表示3秒(?)
+                    b.css('left', '+=' + dx);
+                    b.css('top', '-=' + dy); //-=往上跑，+=往嚇跑
+                });
+                setTimeout(doRun, 30); //3毫秒之後做
+            }
+            doRun();
+
+            // 如何做出循環讓球球源源不絕?
+        </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遞迴(進階，可用迴圈解決就不要用此)</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+            function rec(n){
+                if(n===1){
+                    return 1;
+                }
+                return n * rec(n-1)
+            }
+            info.append( rec(5) + '<br>')
+
+            // 因為5*4*3*2*1=120
+        </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>環狀排列(要用到三角函數惹)</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid lightblue;
+            background-color: #ccc;
+        }
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            background-color: #faf;
+            transition: 400ms;
+        }
+        .big-ball{
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 80px;
+            left: 360px; /* 寬的半徑-大球的半徑 */
+            top: 260px; /* 高的半徑-大球的半徑 */
+            background-color: #aaf;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <div class="big-ball">救命</div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect');
+            const bigBall = $('.big-ball');
+            let isOpened = false; //一開始是收合狀態
+            
+            const ballNum = 12; //12顆球球
+            const angUnit = Math.PI*2/ballNum; //每顆球的角度
+            const balls = [];
+            
+            for(let i=0; i<ballNum; i++){ //用div做動畫很吃效能，所以數量不要太多
+                const b = $(`<div class="ball">${i+1}</div>`);
+                
+            b.css({
+                left: 400 - 25,
+                top: 300 - 25 ,
+                // 讓12顆球都先疊在圓心
+            });
+            balls.push({
+                el: b,
+                bx: 400 - 25, //一開始收闔的位子
+                by: 300 - 25,
+                ex: 400 - 25 + Math.round(250 * Math.cos(i*angUnit)),
+                ey: 300 - 25 + Math.round(250 * Math.sin(i*angUnit)),
+            });
+            rect.append(b);
+            }
+
+            rect.append(bigBall);
+
+            bigBall.on('click', function(){
+                isOpened = !isOpened; //原本是關起來，加了!(not)變成true
+
+                balls.forEach(function(obj, i){
+                    let tx, ty;
+                    if(isOpened){
+                        tx = obj.ex;
+                        ty = obj.ey;
+                    } else{
+                        tx = obj.bx;
+                        ty = obj.by;
+                    }
+                    setTimeout(function(){
+                        obj.el.css({
+                            left: tx,
+                            top: ty,
+                        })
+                    }, 100*i);
+                });
+            })
+
+        </script>
+</body>
+</html>

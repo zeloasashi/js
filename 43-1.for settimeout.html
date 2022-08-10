@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for迴圈用 let 宣告</title>
+</head>
+<body>
+    
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            // 在外面宣告只會有一個全域變數，所以把let放進迴圈裡
+            // 只會一直跑出7
+            let n = 0;
+            for(n = 0; n<7; n++){
+                setTimeout(function(){
+                    console.log(n); //會每秒跑出0-6
+                }, n*1000);
+            }
+            
+            //會每秒跑出0-6
+            for(let i = 0; i<7; i++){
+                setTimeout(function(){
+                    console.log(i); 
+                }, i*1000);
+            }
+
+        </script>
+</body>
+</html>

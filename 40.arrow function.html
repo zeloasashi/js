@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭頭函式</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+
+            const f1 = n=>n*n*n; //有大括號一定要加return，否則會跑不出來
+            info.append( f1(3));
+
+            const f2 =  n=>{return n*n*n}; //有大括號一定要加return，否則會跑不出來
+            info.append( f2(3));
+        </script>
+</body>
+</html>

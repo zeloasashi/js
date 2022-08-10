@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout循環</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            let n = 0
+            const info = $('#info')
+            
+            function run(){
+                info.html(`<h2>${n}</h2>`)
+                //如何在第10秒時停下?
+                // 設定n<10，做到第10秒就停下
+                if (n<10){
+                    n++;
+                setTimeout(run, 1000);
+                }
+                
+            }
+            run();
+
+            
+
+        </script>
+</body>
+</html>

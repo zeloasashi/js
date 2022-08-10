@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髒髒的隨機球球(RGB)</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid lightblue;
+            background-color: #ccc;
+        }
+        .ball{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect')
+
+            function randomColor(){
+                let c = '00000' + Math.floor(16777216*Math.random()).toString(16); //16進位，16777216=256*256*256(RGB三色)
+                return '#' + c.slice(c.length-6);
+            }
+            
+            for(let i=0; i<100; i++){
+                const b = $(`<div class="ball"></div>`);
+                const left = Math.floor(800*Math.random());
+                const top = Math.floor(600*Math.random());
+                const size = 20 + Math.floor(41*Math.random()); //大小在20-60之間
+
+
+            b.css({
+                left,
+                top,
+                width: size, //因為是圓形所以寬高用size
+                height: size,
+                'background-color': randomColor(),
+                // HSL：角度(360度),飽和度,亮度
+            });
+            rect.append(b)
+            }
+            
+        </script>
+</body>
+</html>

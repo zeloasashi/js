@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval亂數移動賽跑 function</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #aff;
+        }
+        .ball{
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: #faf;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="start()">START</button>
+    <button onclick="stop()">STOP</button>
+    <div class="rect">
+        <div class="ball" style="top:30px"></div>
+        <div class="ball" style="top:100px; background-color: #ffa;"></div>
+        <div class="ball" style="top:170px; background-color: #aaf;"></div>
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script>
+        let iid; //interval的id
+        const balls = $('.ball');
+
+        function start(){
+            iid = setInterval(() => {
+                balls.each((this)({
+                    $(this).css('left', '+=' + (1+parseInt(Math.random()*3)));
+                });
+                // 還沒做好，要看8/9 11:00多的錄影檔
+            }, 30);
+        }
+        
+        function stop(){
+            clearInterval(iid);
+        }
+        
+    </script>
+</body>
+</html>

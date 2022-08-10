@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>閉包，function包function</title>
+</head>
+<body>
+    <div id="info"></div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const info = $('#info')
+        const f = (function(){
+            let n = 3;
+            return function(a){
+                n--;
+                if(n>=0){
+                    return a*a;
+                } else {
+                    return null;
+                }
+
+            }
+        })();
+            info.append( f(8) + '<br>') //8*8
+            info.append( f(7) + '<br>') //7*7
+            info.append( f(9) + '<br>') //9*9
+            info.append( f(3) + '<br>') //為什麼是null
+
+            // 如果改成三元運算子的結果?
+
+            
+        </script>
+</body>
+</html>
