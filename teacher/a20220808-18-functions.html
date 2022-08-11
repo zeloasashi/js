@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+
+    info.append( plus(5, 20) + '<br>');
+    info.append( plus(5) + '<br>');
+    info.append( plus() + '<br>');
+
+    // 傳統的函式定義，有提升的效果
+    function plus(a=0, b=10){
+        return a + b;
+    }
+
+    // 其餘運算子, rest operator
+    function a(...b){
+        info.append( JSON.stringify(b) + '<br>');
+    }
+
+    a(2,4,6);
+
+
+</script>
+</body>
+</html>

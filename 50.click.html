@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="myClick(event)">因為是(滑鼠)觸發事件所以括弧裡寫event</button>
+
+    <script>
+        const btn = document.querySelector('button');
+
+        function myClick(abc){ //abc是形式參數，名字可以隨意取
+            console.log('123');
+            console.log(abc);
+        }
+
+        // 傳統的寫法會後蓋前，所以後面的會蓋掉上面的寫法
+        btn.onclick = function(event){ //因為是(滑鼠)觸發事件所以括弧裡寫event
+            console.log('456');
+            console.log(event);
+        }
+    </script>
+</body>
+</html>

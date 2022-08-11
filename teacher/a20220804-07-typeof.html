@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // typeof 單元運算子
+        const info = $('#info');
+        const info2 = document.querySelector('#info');
+
+        info.append(  typeof 6  + '<br>');
+        info.append(  typeof true  + '<br>');
+        info.append(  typeof 'shin'  + '<br>');
+        info.append(  typeof null  + '<br>');
+        info.append(  typeof undefined  + '<br>');
+        info.append(  typeof alert  + '<br>');  // 查看 function 的參照
+
+        info.append(  typeof info  + '<br>');
+        info.append(  info2.constructor.name  + '<br>');
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+
+    function pop(ar){ // ar 形式參數
+        return ar.pop();
+    }
+
+    const ar1 = [1,3,5,7];
+
+    pop(ar1); // 實際參數
+
+    // 傳址呼叫，傳遞參照呼叫
+    // Number, Boolean, String: 傳值呼叫
+
+    info.append( JSON.stringify(ar1) + '<br>');
+
+
+</script>
+</body>
+</html>

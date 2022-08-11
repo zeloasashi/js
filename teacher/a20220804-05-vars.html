@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(shinder); // 提升的效果
+        // console.log(hello); // let 宣告時，必須宣告後才可以使用變數
+
+        var shinder = 100;
+        let hello = 999;
+
+        console.log(shinder);
+        console.log(window.shinder);
+
+        console.log(hello);
+        console.log(window.hello);
+
+        // var 宣告的特性：1. 全域時，會變成 window 物件的屬性； 2. 提升的效果
+
+    </script>
+</body>
+</html>

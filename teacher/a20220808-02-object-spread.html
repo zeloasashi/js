@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+    const p1 = {
+        name: {
+            first: 'john',
+            last: 'wick'
+        },
+        age: 22,
+        gender: 'male',
+    };
+
+    // 設定值的類型：Number, Boolean, String
+
+    const p3 = { ...p1 };  // 展開複製，單層複製 ES6
+
+    p3.name.first = 'alice';
+    p3.age = 50;
+
+    console.log(p1);
+
+
+
+
+
+</script>
+</body>
+</html>

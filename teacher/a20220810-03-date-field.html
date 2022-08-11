@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input id="mydate1" type="date" onchange="showInfo()">
+    <br>
+    <input id="mydate2" type="datetime">
+    <br>
+    <input id="mydate3" type="datetime-local" onchange="showInfo()">
+
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        const info = $('#info');
+
+        function showInfo(){
+            let str = $('#mydate1').val() + '<br>' +
+                $('#mydate3').val() + '<br>';
+
+            info.html( str );
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

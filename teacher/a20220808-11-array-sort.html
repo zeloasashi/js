@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+
+    let people = [
+        {name: "David", age: 35},
+        {name: "Carl", age: 28},
+        {name: "Bill", age: 31},
+    ];
+    const p1 = [...people];
+    p1.sort(function(a, b){
+        return a.age - b.age; // 年齡由小到大
+    });
+    console.log(p1);
+
+    const p2 = [...people];
+    p2.sort(function(a, b){
+        return b.age - a.age; // 年齡由大到小
+    });
+    console.log(p2);
+
+    const p3 = [...people];
+    p3.sort(function(a, b){
+        return b.name > a.name ? -1 : 1 ; // 姓名字母由小到大
+    });
+    console.log(p3);
+
+</script>
+</body>
+</html>

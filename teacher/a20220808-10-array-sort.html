@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+    const ar = [3, 21, 7, 5, 1];
+
+    info.append(ar.toString() + '<br>');
+
+    ar.sort(function(a, b){
+        // console.log({a, b});
+        // 回傳值: 負值做對調，正值或零不對調
+        return a - b; // 由小到大
+    });
+    info.append(ar.toString() + '<br>');
+
+    ar.sort(function(a, b){
+        return b-a; // 由大到小
+    });
+    info.append(ar.toString() + '<br>');
+</script>
+</body>
+</html>

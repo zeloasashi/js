@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // ! 可以用來做布林值的轉換
+
+        console.log(!! 0);
+        console.log(!! undefined);
+        console.log(!! null);
+        console.log(!! NaN);  // not a number
+
+        // 快捷運算子，偷懶運算子
+
+        console.log( 3 && 2 );  // 2
+        console.log( 0 && 2 );  // 0
+
+        let a, b;
+
+        b = 0 && (a=7);
+        console.log(a, b);  // undefined, 0
+
+        a = undefined;
+        b = undefined;
+
+        b = 1 && (a=7);
+        console.log(a, b);  // 7, 7
+
+
+    </script>
+</body>
+</html>

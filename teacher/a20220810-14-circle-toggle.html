@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid gray;
+            background-color: #bde0e7;
+        }
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: white;
+            background-color: #f00;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid black;
+            transition: 300ms;
+        }
+        .big-ball {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            color: white;
+            background-color: rgb(0, 64, 255);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 80px;
+            left: 360px;
+            top: 260px;
+            border: 1px solid black;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <div class="big-ball">click</div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const rect = $('.rect');
+        const bigBall = $('.big-ball');
+        let isOpened = false; // 一開始是收合的狀態
+
+        const ballNum = 12;
+        const angUnit = Math.PI*2/ballNum;
+        const balls = [];
+
+        for(let i=0; i<ballNum; i++){
+            const b = $(`<div class="ball">${i+1}</div>`); // 建立元素
+
+            b.css({
+                left: 400 -25 , 
+                top: 300 -25 
+            });
+
+            balls.push({
+                el: b,
+                bx: 400 -25,
+                by: 300 -25,
+                ex: 400 -25 + Math.round(250 * Math.cos(i*angUnit)),
+                ey: 300 -25 + Math.round(250 * Math.sin(i*angUnit)),
+            });
+            rect.append(b);
+        }
+        rect.append(bigBall);
+
+        bigBall.on('click', function(){
+            isOpened = !isOpened;
+
+            balls.forEach(function(obj, i){
+                let tx, ty;
+                if(isOpened){
+                    tx = obj.ex;
+                    ty = obj.ey;
+                } else {
+                    tx = obj.bx;
+                    ty = obj.by;
+                }
+                setTimeout(function(){
+                    obj.el.css({
+                        left: tx,
+                        top: ty,
+                    })
+                }, 100*i);
+            });
+        })
+
+
+
+    </script>
+</body>
+</html>

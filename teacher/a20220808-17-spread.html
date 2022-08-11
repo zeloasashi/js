@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+
+    const p1 = {
+        name: 'bill',
+        age: 21,
+        gender: 'male'
+    };
+
+    const p2 = { ...p1, name: 'max'};
+    const p3 = {name: 'david', ...p1};
+
+    info.append( JSON.stringify(p2) + '<br>');
+    info.append( JSON.stringify(p3) + '<br>');
+
+    const ar = [2,4,6]
+    const ar2 = ['abc', ...ar, 'def'];
+    info.append( JSON.stringify(ar2) + '<br>');
+
+</script>
+</body>
+</html>

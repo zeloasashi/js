@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+    const str = 'abcdefghi';
+    const ar = str.split('');
+    let br = [...ar];
+
+    info.append( br.splice(2, 3) + '<br>'); // 在索引 2 的位置移除 3 個元素
+    info.append( br + '<br>');
+    info.append('------------<br>');
+
+    br = [...ar];
+    info.append( br.splice(2, 0, 12, 34) + '<br>'); // 在索引 2 的位置插入 2 個元素
+    info.append( br + '<br>');
+    info.append('------------<br>');
+
+    br = [...ar];
+    info.append( br.splice(2, 2, 12, 34) + '<br>'); // 取代
+    info.append( br + '<br>');
+    info.append('------------<br>');
+</script>
+</body>
+</html>

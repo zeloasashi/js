@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+    const p1 = {
+        name: 'bill',
+        age: 22,
+        gender: 'male',
+    };
+
+    for(let s in p1){
+        info.append(`<p>${s}: ${p1[s]}</p>`);
+    }
+
+    console.log('name' in p1);  // p1 有沒有 'name' 這個 key
+    console.log('mobile' in p1);  // p1 有沒有 'mobile' 這個 key
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+
+    let people = [
+        {name: "David", age: 35},
+        {name: "Carl", age: 28},
+        {name: "Bill", age: 31},
+    ];
+
+    // callback function, 回呼函式
+    people.forEach(function(v, i){
+        console.log({v, i});
+    });
+
+</script>
+</body>
+</html>

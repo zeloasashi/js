@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+    const ar = [];
+
+    for(let i=1; i<=42; i++){
+        ar.unshift(i);
+    }
+    info.append(ar.toString() + '<br>');
+
+    ar.sort(); // 預設的情況是以 "字串" 為排序
+    info.append(ar.toString() + '<br>');
+
+    const ar2 = '勞動部今(8)日公布最新一期減班休息(無薪假)人數統計'.split('');
+    ar2.sort();
+    info.append(ar2.toString() + '<br>');
+</script>
+</body>
+</html>

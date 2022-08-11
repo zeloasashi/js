@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="score" type="number" placeholder="輸入分數" oninput="convert()">
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function convert() {
+            const score = + $('#score').val();
+            let g = '';
+
+            if(score >= 90){
+                g = 'A';
+            } else if(score >= 80){
+                g = 'B';
+            } else if(score >= 70){
+                g = 'C';
+            } else if(score >= 60){
+                g = 'D';
+            } else {
+                g = 'F';
+            }
+
+            $('#info').html(g);
+        }
+
+
+
+    </script>
+</body>
+</html>

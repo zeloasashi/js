@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+    const ar = [2, 6, 7, 'hello', true];
+
+    info.append( ar.length + '<br>');
+    info.append( ar + '<br>');
+    info.append( ar.toString() + '<br>');
+    info.append( ar );
+    info.append( '<br>');
+
+    console.log(ar)
+</script>
+</body>
+</html>

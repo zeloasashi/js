@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border: 1px solid gray;
+            background-color: rgb(229, 244, 253);
+            border-radius: 50%;
+        }
+        .hand {
+            position: absolute;
+            left: 300px;
+            top: 300px;
+            
+        }
+        .sec-hand {
+            position: absolute;
+            width: 4px;
+            height: 300px;
+            left: -2px;
+            top: -300px;
+            background-color: red;
+            
+        }
+        .min-hand {
+            position: absolute;
+            width: 10px;
+            height: 220px;
+            left: -5px;
+            top: -215px;
+            background-color: blue;
+            border-radius: 5px;
+        }
+        .hr-hand {
+            position: absolute;
+            width: 20px;
+            height: 160px;
+            left: -10px;
+            top: -150px;
+            background-color: green;
+            border-radius: 10px;
+        }
+    </style>   
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hand" id="hr-hand">
+            <div class="hr-hand"></div>
+        </div>
+        <div class="hand" id="min-hand">
+            <div class="min-hand"></div>
+        </div>
+        <div class="hand" id="sec-hand">
+            <div class="sec-hand"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        const secHand = $('#sec-hand');
+        const minHand = $('#min-hand');
+        const hrHand = $('#hr-hand');
+        
+
+        function runClock(){
+            const now = new Date;
+            let msec = now.getMilliseconds();
+            let sec = now.getSeconds();
+            let min = now.getMinutes();
+            let hr = now.getHours();
+
+            secHand.css('transform', `rotate(${sec*6 + 6/1000*msec}deg)`);
+            minHand.css('transform', `rotate(${min*6}deg)`);
+            hrHand.css('transform', `rotate(${hr*30 + .5*min}deg)`);
+
+            setTimeout(runClock, 30);
+        }
+        runClock();
+
+
+    </script>
+
+
+</body>
+
+</html>

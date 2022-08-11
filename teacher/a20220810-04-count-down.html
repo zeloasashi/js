@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        const deadline = new Date('2022-10-14T00:00:00');
+
+        const info = $('#info');
+
+        function countDown(){
+            const now = new Date;
+            let ms = deadline - now; // 兩個時間點相隔時間 (msec)
+
+            let days = parseInt(ms / 86_400_000); // 天
+
+            let hours = parseInt((ms % 86_400_000)/3600000); // 小時
+            let mins = parseInt((ms % 3600000)/60000); // 分鐘
+            let secs = parseInt((ms % 60000)/1000); // 分鐘
+
+            info.html(`<h2> ${days} 天 ${hours} 時 ${mins} 分 ${secs} 秒 </h2>`)
+
+
+        }
+        setInterval(countDown, 1000);
+
+    </script>
+
+</body>
+
+</html>

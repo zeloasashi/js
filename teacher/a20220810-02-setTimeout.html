@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        const deadline = new Date('2022-10-14');
+
+        const info = $('#info');
+
+
+        const now = new Date;
+        let ms = deadline - now; // 兩個時間點相隔時間 (msec)
+        // let ms = deadline.getTime() - now.getTime(); // 兩個時間點相隔時間 (msec)
+
+
+
+        info.html(`<h2>還有 ${Math.round(ms / 86_400_000)} 天</h2>`)
+
+    </script>
+
+</body>
+
+</html>

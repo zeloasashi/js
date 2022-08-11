@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const obj1 = {};
+    const obj2 = new Object(); // 舊的寫法，目前幾乎不這樣使用
+    const obj3 = {name: 'David', age: 27};
+    const obj4 = {name: 'David', age: 27, name: 'Peter'};
+
+    const obj5 = {
+        'name': 'Flora', // key 的引號可以省略
+        'age': 23,
+        50: 123, // key 不要使用字串以外的類型
+    };
+
+    console.log(obj3);
+    console.log(obj4);
+    console.log(obj5); // console 在展開物件資料時才會去查看內容
+
+    obj5.name = 'Alice';
+
+    console.log(obj5);
+</script>
+</body>
+</html>

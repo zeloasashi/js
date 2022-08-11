@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" id="a"> + <input type="text" id="b">
+<button onclick="cal()">=</button>
+
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function cal(){
+              const a = $('#a').val();
+              const b = $('#b').val();
+
+            // $('#info').html( a + b );
+            // $('#info').html( parseInt(a) + parseInt(b) );      // 轉換為整數
+            // $('#info').html( parseFloat(a) + parseFloat(b) );  // 轉換為浮點數
+            $('#info').html( +a + +b );
+        }
+    </script>
+</body>
+</html>

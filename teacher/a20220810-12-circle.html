@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid gray;
+            background-color: #bde0e7;
+        }
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            color: white;
+            background-color: #f00;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+    <!--    <div class="ball">88</div>-->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const rect = $('.rect');
+
+        const ballNum = 12;
+        const angUnit = Math.PI*2/ballNum;
+
+        for(let i=0; i<ballNum; i++){
+            const b = $(`<div class="ball">${i+1}</div>`); // 建立元素
+
+            b.css({
+                left: 400 -25 + 250 * Math.cos(i*angUnit - Math.PI/3), 
+                top: 300 -25 + 250 * Math.sin(i*angUnit - Math.PI/3)
+            });
+            rect.append(b);
+        }
+
+    </script>
+</body>
+</html>

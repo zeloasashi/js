@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    const info = $('#info');
+    const ar = [2, 6, 7, 'hello', true];
+
+    ar[9] = 'shin';     // **索引值最好是連續的
+    ar[-2] = 'der';     // **不要用正整數以外的索引
+    ar['hi'] = 'hello'; // **不要用正整數以外的索引
+
+    console.log(ar[ ar.length-1 ]); // 最後一個元素值
+
+    info.append(ar.length + `<br>`); // 取得最大索引值 加一
+    info.append(`-----------------<br>`);
+    // 不建議使用 for loop
+    for(let i=0; i<ar.length; i++){
+        info.append(`${i}: ${ar[i]}<br>`);
+    }
+    info.append(`-----------------<br>`);
+
+
+    for(let s in ar){
+        info.append(`${s}: ${ar[s]}<br>`);
+    }
+    info.append(`-----------------<br>`);
+    info.append(ar[2] + `<br>`);
+    info.append(ar['2'] + `<br>`);
+
+
+</script>
+</body>
+</html>
