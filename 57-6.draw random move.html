@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑鼠點擊才能畫圖+隨機球球動畫特效</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+
+            background-color: #ccc;
+        }
+        .ball{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #faf;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            pointer-events: none; /* 不感應滑鼠動作 */
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <input type="color" id="myColor"> <!-- ES5開始有可以自己選顏色的功能，不過因為下面套了隨機球球所以沒有吃到 -->
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect')
+            // 建立元素
+
+            function randomColor() {
+                let c = '00000' + Math.floor(16777216 * Math.random()).toString(16);
+                return '#' + c.slice(c.length - 6);
+            }
+            const mDown = event=>{ //mDown = mousedown
+                rect.on('mousemove',mMove);
+            }
+            const mUp = event=>{ //mUp = mouseup
+                rect.off('mousemove',mMove);
+            }
+            const mMove = event=>{
+                const x = event.offsetX;
+                const y = event.offsetY;
+                const size = 10 + Math.floor(21*Math.random());
+                const bgc = randomColor();
+
+                const b = $(`<div class="ball"></ball>`);
+                    b.css({
+                        backgroundColor: bgc,
+                        width: size,
+                        height: size,
+                        left: x - size/2,
+                        top: y - size/2
+                    });
+                    rect.append(b);
+                    b.delay(300).animate({top: 600, opacity: 0}, 800, function(){
+                        $(this).remove();
+                        //延遲0.3秒後做移動和變透明的特效
+                    })
+
+            }
+
+            rect.on('mousedown', mDown);
+            // rect.on('mouseup', mUp);  用這個是只有在正方形內離開滑鼠才有用，如果移到正方形外才離開滑鼠，滑鼠移進正方形時又會自動畫圈
+
+            // 下面這個才是在視窗內離開滑鼠都OK，注意因為是用JQ寫的，所以不能只寫window，還要加$()
+            $(window).on('mouseup', mUp);
+
+            
+        </script>
+
+
+    
+</body>
+</html>

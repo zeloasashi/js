@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>儲存滑鼠畫圖資料(字串)</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+
+            background-color: #ccc;
+        }
+        .ball{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #faf;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            pointer-events: none; /* 不感應滑鼠動作 */
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <button onclick="getData()">get data</button>
+    <br>
+    <textarea id="ta" cols="80" rows="30"></textarea>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect');
+            // 建立元素
+            const data = [];
+
+            function randomColor() {
+                let c = '00000' + Math.floor(16777216 * Math.random()).toString(16);
+                return '#' + c.slice(c.length - 6);
+            }
+            const mDown = event=>{ //mDown = mousedown
+                rect.on('mousemove',mMove);
+            }
+            const mUp = event=>{ //mUp = mouseup
+                rect.off('mousemove',mMove);
+            }
+            const mMove = event=>{
+                const size = 10 + Math.floor(21*Math.random());
+                const x = event.offsetX - size/2;
+                const y = event.offsetY - size/2;
+                const bgc = randomColor();
+
+                const b = $(`<div class="ball"></ball>`);
+                    b.css({
+                        backgroundColor: bgc,
+                        width: size,
+                        height: size,
+                        left: x,
+                        top: y
+                    });
+                    rect.append(b);
+                    data.push({
+                        x, y, bgc, size
+                    
+                    })
+
+            }
+
+            rect.on('mousedown', mDown);
+            // rect.on('mouseup', mUp);  用這個是只有在正方形內離開滑鼠才有用，如果移到正方形外才離開滑鼠，滑鼠移進正方形時又會自動畫圈
+
+            // 下面這個才是在視窗內離開滑鼠都OK，注意因為是用JQ寫的，所以不能只寫window，還要加$()
+            $(window).on('mouseup', mUp);
+
+            function getData(){
+                const ta = document.querySelector('#ta');
+                ta.value = JSON.stringify(data, null, 4);
+                // 變成字串的寫法增加空值(null)並縮排4個空格
+            }
+
+            
+        </script>
+
+
+    
+</body>
+</html>

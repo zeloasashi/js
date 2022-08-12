@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑鼠點擊才能畫圖</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+
+            background-color: #ccc;
+        }
+        .ball{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #faf;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            pointer-events: none; /* 不感應滑鼠動作 */
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect')
+            // 建立元素
+            const mDown = event=>{ //mDown = mousedown
+                rect.on('mousemove',mMove);
+            }
+            const mUp = event=>{ //mUp = mouseup
+                rect.off('mousemove',mMove);
+            }
+            const mMove = event=>{
+                const x = event.offsetX;
+                const y = event.offsetY;
+
+                const b = $(`<div class="ball"></ball>`);
+                    b.css({
+                        left: x-10,
+                        top: y-10
+                    });
+                    rect.append(b);
+
+            }
+
+            rect.on('mousedown', mDown);
+            // rect.on('mouseup', mUp);  用這個是只有在正方形內離開滑鼠才有用，如果移到正方形外才離開滑鼠，滑鼠移進正方形時又會自動畫圈
+
+            // 下面這個才是在視窗內離開滑鼠都OK，注意因為是用JQ寫的，所以不能只寫window，還要加$()
+            $(window).on('mouseup', mUp);
+
+            
+        </script>
+
+
+    
+</body>
+</html>

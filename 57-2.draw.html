@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修正兩個BUG</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+
+            background-color: #ccc;
+        }
+        .ball{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #faf;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            pointer-events: none; /* 不感應滑鼠動作 */
+        }
+    </style>
+</head>
+<body>
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+        <script>
+            const rect = $('.rect')
+            // 建立元素
+            rect.on('mousemove', function(event){
+                const x = event.offsetX;
+                const y = event.offsetY;
+
+                const b = $(`<div class="ball"></div>`);
+                b.css({
+                    left: x-10, //因為圈圈是20px，為了讓滑鼠游標在圈圈正中間，要扣掉一半寬高
+                    top: y-10
+                });
+                rect.append(b)
+            })
+
+            // 有BUG，左上角也會連動
+            // 怎麼樣能讓滑鼠不感應圈圈，而是正方形?
+        </script>
+
+
+    
+</body>
+</html>
