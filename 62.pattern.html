@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表單必填</title>
+</head>
+<body>
+    <form action="" onsubmit="return false;">
+    <!-- onsubmit="return false;"表示不傳資料給後端 -->
+        <input type="number" min="5" max="50" step="5" placeholder="年齡">
+        <!-- type="number"只能填數字，預設最小值5最大值50， step="5"按按鍵會一次+5-->
+
+        <br>
+        <input type="text" placeholder="手機號碼"
+        required
+        pattern="09\d{2}-?\d{3}-?\d{3}">
+        <!-- required 表示必填，-?表示?左邊的字輸不輸入都可以 -->
+        <br>
+        <input type="submit">
+        <!-- https://stackoverflow.com/
+        可以查到程式問題解答的網站-->
+    </form>
+</body>
+</html>

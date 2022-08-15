@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const str = '{"name":"shin"}'
+        let obj;
+        try{
+            // const obj = JSON.parse(str); //如果在大括號內定義變數，會變成區域變數，最後最外面的log讀不到，要讓他讀到就要在外面下變成全域變數，而且要下let
+            obj = JSON.parse(str);
+            console.log(obj);
+        } catch(error){ //error message 錯誤訊息；error tack錯誤堆疊
+            console.log({error});
+        }
+        console.log(obj);
+    </script>
+</body>
+</html>

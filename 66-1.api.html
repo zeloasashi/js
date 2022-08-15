@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery.get()</title>
+</head>
+<body>
+    <a href="https://api.jquery.com/">JQ的API</a>
+    <a href="https://api.jquery.com/jQuery.get/">jQuery.get()的用法</a>
+    <br>
+    <input type="text">
+    <button onclick="loadData()">load data</button>
+    <div id="info"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const info = $('#info');
+        function loadData(){
+            $.get('data/65example.txt', function(data){
+                // jQuery.get( url [, data ] [, success ] [, dataType ] )
+                // 文件內中括號的意思表示可有可無(有沒有都可以)
+                info.html(data);
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用json提取畫的圖</title>
+    <style>
+        .rect{
+            position: relative;
+            width: 800px;
+            height: 600px;
+
+            background-color: #ccc;
+        }
+        .ball{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #faf;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            pointer-events: none; /* 不感應滑鼠動作 */
+        }
+    </style>
+</head>
+<body>
+    <button onclick="loadData()">load data</button>
+    <!-- 按了按鍵後圖案才跑出來 -->
+    <div class="rect">
+        <!-- <div class="ball">救命</div> -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script>
+            let data; //json裡面有const data
+            const rect = $('.rect');
+            // 建立元素
+            function drawBall({x, y, bgc, size}){
+                const b = $(`<div class="ball"></ball>`);
+                    b.css({
+                        backgroundColor: bgc,
+                        width: size,
+                        height: size,
+                        left: x,
+                        top: y
+                    });
+                    rect.append(b);
+            }
+
+
+            let i = 0;
+            function doRun(){
+                if(data[i]){
+                    drawBall(data[i]);
+                    setTimeout(doRun, 30);
+                    i++
+                }
+            }
+            // doRun(); 沒有要立刻執行
+
+            function loadData(){ //做按鈕才要用這個funtion
+                $.get('data/data.json', function(data1){
+                    // function(形式參數)為了不要讓上方定義的全域變數名字重複所以叫做data1
+                    data = data1; //區域變數設定給全域變數，是將data設定成data1，所以等號兩邊不能換位子
+                    doRun();
+                }, 'json');
+            }
+            
+        </script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj1 = {
+            name: 'David',
+            age:27
+        };
+        console.log(obj1.toString());
+        // 預設會印出[object Object]
+        Object.prototype.toString = function(){
+            return JSON.stringify(this);
+            // Object大寫是類型，object小寫是物件(個體)
+            // 將預設(prototype)的字串表示法變成JSON的字串表示法
+        };
+        console.log(obj1.toString());
+        // 改預設後印出{"name":"David","age":27}
+        
+    </script>
+</body>
+</html>

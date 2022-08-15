@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<title>bootstrap5的表單</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form novalidate>
+                <!-- 在表單後面打novalidate，會在傳送表單後讓帳號密碼直接出現在網址上 -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <!-- 如果不打label for=""，使用者就不能點擊標題文字就讓輸入欄位呈現foccus的狀態，對用手機且年長的使用者來說不太方便-->
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                    <!-- 表單最重要的值是name，因為後端讀取的資料是這個，通常name和id名字會一樣 -->
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="cb" value="100">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <!-- document.forms[0].password.setAttribute('type', 'text');
+                document.forms[0].password.setAttribute('type', 'password');
+                可以在網頁中的檢查看到帳號和密碼
+                [0]表示只有一個表單，若是登入和註冊在同一個頁面則是兩個表單 -->
+            <!-- document.forms[0].password.value=
+                可以在網頁中的檢查設定帳號和密碼 -->
+
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+    <!-- 掛CDN雖然方便但還是蠻危險ㄉ，直接下載比較安全 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>錯誤堆疊</title>
+</head>
+<body>
+    <script>
+
+        // 可以用字元表示法尋找function\s+([a-z]+)*()
+        // /s表示空格，([a-z])表示後面有英文字，+表示
+        function c(){
+            console.log('c -- begin');
+        throw new Error('自訂的錯誤'); //原本都是對的，但自訂錯誤後結束都是錯的
+        console.log('c -- end');
+        }
+        
+        function b(){
+            console.log('b -- begin');
+            c();
+            console.log('b -- end');
+        }
+
+        function a(){
+            console.log('a -- begin');
+            b();
+            console.log('a -- end');
+        }
+        a();
+        // A做了之後開始印出B，B做了之後開始印出C
+
+
+    </script>
+</body>
+</html>

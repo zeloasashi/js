@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX使用XMLHttpRequest</title>
+</head>
+<body>
+    <input type="text">
+    <button onclick="loadData()">load data</button>
+    <div id="info"></div>
+
+    <script>
+        const info = document.querySelector('#info');
+        function loadData(){
+            const xhr = new XMLHttpRequest();
+            console.log('-----------------1');
+            xhr.onload = function(){
+                console.log('-----------------2');
+                info.innerHTML = xhr.responseText;
+            }
+            xhr.open('GET', 'data/65example.txt'); //設定
+            xhr.send(); //發送request
+            console.log('----------------3');
+        }
+
+        //為什麼順序是132
+        // 1先，然後先執行send，再執行onload(拿到值(3)後才讀取(2))
+        // 大專一定會用AJAX，很重要~~
+    </script>
+</body>
+</html>

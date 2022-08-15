@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function c(){
+            console.log('c -- begin');
+            throw new Error('自訂的錯誤');  // 丟出錯誤
+            console.log('c -- end');
+        }
+
+        function b(){
+            console.log('b -- begin');
+            c();
+            console.log('b -- end');
+        }
+
+        function a(){
+            console.log('a -- begin');
+            b();
+            console.log('a -- end');
+        }
+
+        a();
+
+    </script>
+</body>
+</html>

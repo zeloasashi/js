@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正規表示法、單一字元表示法與多元字元表示法</title>
+</head>
+<body>
+    <a href="https://regex101.com/">這裡可以練習</a>
+
+    <script>
+        //密碼長度在六位數以上，中英數字都要有該怎麼寫~~
+        const pattern = /[a-zA-Z0-9]{6}/i;
+        // [a-zA-Z0-9]表示任何字母數字都匹配。
+        // ^字首有2個英文字母，$字尾有8個數字
+        const strs = [
+            'AH1234567890',
+            'BAH1234567890',
+            'AH12345678', //只有這個是true
+            '123AH1234567890',
+        ];
+        for(let v of strs){
+            console.log(v, pattern.test(v));
+        }
+
+    </script>
+</body>
+</html>
